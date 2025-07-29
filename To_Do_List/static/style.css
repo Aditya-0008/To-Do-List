@@ -1,0 +1,207 @@
+/* ------------------------------  HEADER / GREETING  ------------------------------ */
+.signup-login h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 26px;
+}
+
+/* ------------------------------  LOG‑OUT ICON  ------------------------------ */
+.fa-right-from-bracket {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.fa-right-from-bracket:hover {
+    color: #f66;
+}
+
+/* ------------------------------  FORM  ------------------------------ */
+form {
+    margin-bottom: 20px;
+}
+
+.inp {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: background 0.3s, border 0.3s;
+}
+
+.inp::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.inp:focus {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #aaa;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #1a1a1a;
+}
+
+/* ------------------------------  TASK CARD  ------------------------------ */
+.Todo {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin: 12px 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    position: relative;
+    z-index: 5;
+}
+
+.Todo:hover {
+    transform: scale(1.02);
+}
+
+.Todo h5 {
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.Todo p {
+    flex-grow: 1;
+    color: white;
+    font-size: 15px;
+    margin: 0 10px;
+}
+
+/* ------------------------------  ICONS  ------------------------------ */
+.Todo i {
+    color: #ddd;
+    font-size: 16px;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: color 0.3s;
+    pointer-events: auto;        /* accept clicks */
+    position: relative;          /* separate stacking context */
+    z-index: 10;
+}
+
+.Todo i:hover{
+    color: #ff4c4c;
+}
+
+/* ------------------------------  SIGNUP BOX  ------------------------------ */
+.signup-box {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/* ------------------------------  TASK LIST (SCROLL AREA)  ------------------------------ */
+.task-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: 15px;
+    padding-right: 5px;
+    position: relative;
+    z-index: 1;
+    max-height: 300px;
+}
+
+.task-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+/* ------------------------------  OUTER LAYOUT  ------------------------------ */
+.signup-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+}
+
+.box-wrapper {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: -5px;
+}
+
+.greeting {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+.checkbox {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #00ffcc;
+}
+
+.Todo.done {
+    opacity: 0.7;
+    background-color: rgba(0, 128, 0, 0.5); /* Green background */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    text-decoration: none;
+    color: white;
+}
+
+.Todo.done p {
+    text-decoration: line-through;
+    color: white;
+}
+
+.Todo.not-done {
+    background-color: rgba(255, 0, 0, 0.15); /* Light translucent red */
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.Todo.not-done p {
+    text-decoration: none;
+    color: white;
+}

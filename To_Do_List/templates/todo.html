@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Page</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="signup-login">
+        <div class="box-wrapper">
+            <div class="greeting">Hello {{user}}</div>
+            
+            <div class="signup-box scr">
+                <div class="heads">
+                    <div class="heading">
+                        Get Things Done
+                    </div>
+                    
+                    <div class="anca">
+                        <a href="{% url 'signout' %}" class="sign">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" class="inp" name="title" required placeholder="Add Today's Task">
+                    <input type="submit" class="submit-button" value="Add Task">
+                </form>
+                    
+                <div class="task-list">
+                    {% for todo in res %}
+                    <div class="Todo {% if todo.completed %}done{% else %}not-done{% endif %}">
+                        <form method="post" action="{% url 'toggle_complete' todo.srno %}">
+                            {% csrf_token %}
+                            <input type="checkbox" class="checkbox" onchange="this.form.submit()" {% if todo.completed %}checked{% endif %}>
+                        </form>
+                        <h5>{{todo.srno}}</h5>
+                        <p>{{todo.title}}</p>
+                        <div>
+                            <a href="{% url 'edit_todo' todo.srno %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{% url 'delete_todo' todo.srno %}"><i class="fa-solid fa-trash"></i></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
